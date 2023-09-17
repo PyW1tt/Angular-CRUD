@@ -1,0 +1,46 @@
+<mat-toolbar color="secondary">
+    <button mat-icon-button (click)="onClickNavToggle()"> 
+      <mat-icon>menu</mat-icon>
+    </button>  
+  
+    <span *ngIf="!mobileMax">My Web</span>
+  
+    <span class="flex-fill"></span>
+    <div class="d-flex align-items-center">
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>search</mat-icon>
+      </button>
+  
+      <div class="vl"></div>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon [matBadge]="demoNoti" matBadgeColor="primary"> mail_outline</mat-icon>
+      </button>
+  
+      <div class="vl"></div>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon [matBadge]="demoMailNoti" matBadgeColor="primary">notifications_none</mat-icon>
+      </button>
+    </div>
+  
+    <button mat-button [matMenuTriggerFor]="list">
+      <img class="avatar rounded-circle"
+        src="https://cdn-icons-png.flaticon.com/256/1144/1144709.png" 
+        alt="">
+        <span class="ms-2">Admin UserData</span>
+    </button>
+    <mat-menu #list="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  
+  </mat-toolbar>

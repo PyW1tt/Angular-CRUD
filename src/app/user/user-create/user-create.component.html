@@ -1,0 +1,81 @@
+<mat-card>
+    <form>
+        <mat-card-header>
+            <mat-card-title class="d-flex justify-content-between align-items-center">
+                <span>Create User</span>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-content class="p-3">
+            <div class="row">
+                <div class="col-md-2">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Name</mat-label>
+                        <input  matInput placeholder="" required [(ngModel)]="mUser.name"
+                            name="name" #name="ngModel">
+                        <mat-error *ngIf="name.hasError('required') && name.invalid">
+                            Name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Address</mat-label>
+                        <input  matInput placeholder="" type="text" required
+                            [(ngModel)]="mUser.address" name="address" #address="ngModel">
+                        <mat-error *ngIf="address.hasError('required')">
+                            Address is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input  matInput type="email" placeholder="" required email=""
+                            [(ngModel)]="mUser.email" name="email" #email="ngModel">
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError ('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            Email is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone Number</mat-label>
+                        <input  matInput type="tel" placeholder="" required minlength="10"
+                            [(ngModel)]="mUser.phone" name="phone" #phone="ngModel">
+                        <mat-error *ngIf="phone.hasError('minlength') && !phone.hasError ('required')">
+                            Phone Number must be ar least 10 charters long.
+                        </mat-error>
+                        <mat-error *ngIf="phone.hasError('required')">
+                            Phone Number is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-2 input-group">
+                <div class="col-md-4" *ngIf="imagePreview">
+                    <img class="img-fluid border" [src]="imagePreview" alt="">
+                </div>
+                <div class="col-md-8 input-group-btn">
+                    <button mat-stroked-button class="btn btn-light" (click)="fileInput.click()" type="button">
+                        <mat-icon>photo</mat-icon>
+                        <span>Select image</span>
+                        <input (change)="onPreviewImage($event)" #fileInput type="file" accept="image/*">                       
+                    </button>
+                </div>
+            </div>
+        </mat-card-content>
+        <button mat-raised-button type="submit" class="submit btn btn-success" (click)="onSubmit()"
+            [disabled]="!name.valid || !address.valid || !email.valid || !phone.valid">
+            Submit
+        </button>
+        <button mat-raised-button type="button" class="button btn btn-danger" (click)="onCancel()">
+            Cancel
+        </button>
+    </form>
+</mat-card>

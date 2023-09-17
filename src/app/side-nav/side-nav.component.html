@@ -1,0 +1,55 @@
+<img class="img-fluid " src="https://cdn-icons-png.flaticon.com/256/1144/1144709.png" alt="">
+
+<mat-nav-list dense class="mt-2">
+    <a mat-list-item routerLink='/user'>
+        <span matLine>
+            <span class="mat-h4">Data</span>
+        </span>
+        <img matListAvatar src="https://cdn-icons-png.flaticon.com/512/3616/3616558.png" alt="">
+    </a>
+
+    <mat-divider class="mt-4 pt-2"></mat-divider>
+
+    <h3 mat-subheader>DashBoard</h3>
+
+    <a mat-list-item href="#">
+        <span matLine>
+            <span class="mat-h4">Segment</span>
+        </span>
+        <img matListAvatar src="https://cdn-icons-png.flaticon.com/512/5935/5935702.png" alt="">
+    </a>
+    <a mat-list-item href="#">
+        <span matLine>
+            <span class="mat-h4">Summary</span>
+        </span>
+        <img matListAvatar src="https://cdn-icons-png.flaticon.com/512/8064/8064953.png" alt="">
+    </a>
+    <a mat-list-item href="#">
+        <span matLine>
+            <span class="mat-h4">Customer</span>
+        </span>
+        <img matListAvatar src="https://cdn-icons-png.flaticon.com/512/3201/3201521.png" alt="">
+    </a>
+    <div>
+        <button mat-list-item href="#" class="setting" [matMenuTriggerFor]="Setting">
+            <span matLine>
+                <span class="mat-h4">Setting</span>
+            </span>
+            <img matListAvatar src="https://cdn-icons-png.flaticon.com/512/484/484613.png" alt="">
+        </button>
+        <mat-menu #Setting="matMenu">
+            <button mat-menu-item>
+                <mat-icon>lock</mat-icon>
+                <span>Private & Security</span>
+            </button>
+            <button mat-menu-item >
+                <mat-icon>headset</mat-icon>
+                <span>Help and Support</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>help_outline</mat-icon>
+                <span>About</span>
+            </button>
+        </mat-menu>
+    </div>
+</mat-nav-list>

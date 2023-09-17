@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+.icon {
+    height: 3.5rem;
+    width:  3.5rem;
+}
+
+img{
+    width: 90px;
+    height: 90px;
+    margin-top: 0;
+}
+
+td{
+    padding-top: 5px !important;
+}
+
+
+@media only screen and (max-width:600px) {
+
+   .search_form{
+    flex-direction: column;
+    align-items: stretch !important;
+    margin: 12px 0px;
+   } 
+
+   .search_form>.mat-form-field{
+    width: 100% !important;
+    margin-bottom: 12px;
+   } 
+} 
+
+
+   

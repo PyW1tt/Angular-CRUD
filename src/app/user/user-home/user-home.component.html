@@ -1,0 +1,93 @@
+<div class="row">
+
+  <div class="col-md-4">
+    <mat-card class="d-flex align-items-center">
+      <img class="icon me-3" src="https://cdn-icons-png.flaticon.com/512/5619/5619329.png" alt="">
+      <div class="d-flex flex-column">
+        <div class="h6 mb-0">Total Users</div>
+        <div class="h6 mb-0">XXX</div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="col-md-4">
+    <mat-card class="d-flex align-items-center">
+      <img class="icon me-3" src="https://cdn-icons-png.flaticon.com/512/2393/2393405.png" alt="">
+      <div class="d-flex flex-column">
+        <div class="h6 mb-0">New Users</div>
+        <div class="h6 mb-0">XXX</div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="col-md-4">
+    <mat-card class="d-flex align-items-center">
+      <img class="icon me-3" src="https://cdn-icons-png.flaticon.com/512/889/889749.png" alt="">
+      <div class="d-flex flex-column">
+        <div class="h6 mb-0">Defect</div>
+        <div class="h6 mb-0">XXX</div>
+      </div>
+    </mat-card>
+  </div>
+
+</div>
+
+<div class="mat-elevation-z8 mt-2 table-responsive">
+
+  <div class="search_form d-flex justify-content-between align-items-center p-3">
+    <mat-form-field appearance="outline" class="w-50">
+      <mat-label>Search UserName</mat-label>
+      <input [(ngModel)]="textSearch" (keyup)="search($event)" matInput placeholder="Name">
+      <mat-icon matSuffix *ngIf="!textSearch">search</mat-icon>
+      <button mat-button matSuffix *ngIf="textSearch" (click)="clearSearch()" class="close-icon">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-flat-button class="btn btn-primary" [routerLink]="'/user/create'">
+      <mat-icon>add</mat-icon> New User
+    </button>
+  </div>
+
+  <table class="w-100 table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="ps-4 num">No.</th>
+        <th class="col-1 text-start">Image</th>
+        <th class="col-2 text-start">Name</th>
+        <th class="col-3 text-center">Address</th>
+        <th class="col-2 text-center">Email</th>
+        <th class="col-2 text-center">Phone Number</th>
+        <th class="col-1 text-center">ACTION</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of items | async ;let i=index">
+        <td class=" pt-4 ps-4 num">{{i+1}}</td>
+        <td class="col-1 text-start pt-4">
+          <img class="rounded-top" src="{{item.payload.val().image}}">
+        </td>
+        <td class="col-2 text-start pt-4">{{item.payload.val().name}}</td>
+        <td class="col-3 text-center pt-4">{{item.payload.val().address}}</td>
+        <td class="col-2 text-center pt-4">{{item.payload.val().email}}</td>
+        <td class="col-2 text-center pt-4">{{item.payload.val().phone}}</td>
+
+        <td class="col-1 text-center pt-3">
+          <div>
+            <button mat-icon-button (click)="onClickEdit(item)">
+              <mat-icon class="material-icons-outlined ">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onClickDeleteUser(item)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5,10,25,100]" [showFirstLastButtons]="true"></mat-paginator>
+
+
+</div>

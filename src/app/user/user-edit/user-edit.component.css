@@ -1,0 +1,12 @@
+::ng-deep .mat-card-header-text{
+    width: 100%;
+}
+
+[type='file']{
+    display: none;
+}
+
+.submit{
+    margin-right: 20px; ;
+}
+
